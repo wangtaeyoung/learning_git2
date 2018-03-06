@@ -47,7 +47,18 @@ class Mimic(object):
     # +++your code here+++
     with open(fn,'r') as f:
         words = f.read().lower().split()
-    # words 를 m_dict에 넣어야함    
+    # words 를 m_dict에 넣어야함
+    prev = ''
+    for word in words:
+        # 이전 워드가 키, 다음 워드가 밸류
+        # 키는 별도의 변수를 사용하자, word가 밸류로 들어간다.
+        if prev not in self.m_dict.keys():
+            self.m_dict[prev] = []
+        self.m_dict[prev].append(word)
+        # word가 다음바퀴의 키
+        prev = word
+
+        pass    
     return
   def print_mimic(self, word):
     """입력된 word로 문장을 시작하고 이어지는 단어를 랜덤하게 선택해가면서 word를 출력하자. 
@@ -63,5 +74,4 @@ if __name__ == '__main__':
   fn = "500_username_sample.txt"
   m = Mimic()
   m.mimic_dict(fn)
-  m.print_mimic('')
-  
+  m.m.print() 
