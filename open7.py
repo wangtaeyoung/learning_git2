@@ -74,4 +74,3 @@ if __name__ == '__main__':
   fn = "500_username_sample.txt"
   m = Mimic()
   m.mimic_dict(fn)
-  m.m.print() 
